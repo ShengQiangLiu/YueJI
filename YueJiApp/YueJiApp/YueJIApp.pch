@@ -1,0 +1,43 @@
+//
+//  YueJIApp.pch
+//  YueJiApp
+//
+//  Created by admin on 15/8/9.
+//  Copyright (c) 2015年 ShengQiangLiu. All rights reserved.
+//
+
+#ifndef YueJiApp_YueJIApp_pch
+#define YueJiApp_YueJIApp_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define DP_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define DP_IS_IOS6 (DP_SYSTEM_VERSION >= 6.0 && DP_SYSTEM_VERSION < 7.0 ? YES : NO)
+#define DP_IS_IOS7 (DP_SYSTEM_VERSION >= 7.0 && DP_SYSTEM_VERSION < 8.0 ? YES : NO)
+#define DP_IS_IOS8 (DP_SYSTEM_VERSION >= 8.0 && DP_SYSTEM_VERSION < 9.0 ? YES : NO)
+
+#define DP_Top (DP_IS_IOS6 ? 0 :20.0)
+#define DP_Cut_HEIGHT 20.0
+
+#define DP_IS_IPHONE5 DP_SCREEN_HEIGHT == 568.0 ? YES : NO
+#define DP_IS_IPHONE6 DP_SCREEN_HEIGHT == 667.0 ? YES : NO
+#define DP_IS_IPHONE6PLUS DP_SCREEN_HEIGHT == 736.0 ? YES : NO
+
+#define DP_SCREEN_HEIGHT (DP_IS_IOS6 ? [UIScreen mainScreen].bounds.size.height-DP_Cut_HEIGHT : [UIScreen mainScreen].bounds.size.height)
+#define DP_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define DP_ROOTVIEW_HEIGHT (DP_IS_IOS6 ? DP_SCREEN_HEIGHT : DP_SCREEN_HEIGHT-DP_Cut_HEIGHT)
+
+#define DP_RATIO_HOME_SLIDEIMAGE 328.0/640.0;
+#define DP_RATIO_HOME_COVERIMAGE 193.0/290.0;
+#define DP_RATIO_HOMELEFTMENU 400.0/640.0;
+#define DP_RATIO_HOMERIGHTMENU 440.0/640.0;
+#define DP_RATIO_RANK_COVERIMAGE 82.0/125.0;
+#define colorwithRGB(a,b,c) [UIColor colorWithRed:a green:b blue:c alpha:1.0]
+
+#define adoptValue(a) (a*(DP_SCREEN_WIDTH/320.0))
+#define adoptVerticalValue(a) a*(DP_SCREEN_HEIGHT/568.0)
+#define adoptImageSize(a) (DP_IS_IPHONE6PLUS) ? (int)(a*3) : (int)(a*2)
+
+#define adoptControlSize(a) (DP_IS_IPHONE6PLUS) ? ((float)a/3) : ((float)a/2)
+
+#endif
